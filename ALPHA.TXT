@@ -1,0 +1,102 @@
+        project: ALPHA
+current version: 1.00
+  technology by: PHATRINO mamber of the TI-underground
+          email: phatrino@yahoo.com
+        website: Coming Soon...
+
+        apology: Sorry this file's so long
+
+    description: ALPHA is a program that can convert ti files
+                 to text files.  This can be used to print
+                 notes, work programs out on paper, manipulate
+                 program files, I don't know.
+
+                 I just give you the technology.
+                 Do with it as you will.
+
+
+   instructions: just type ALPHA [infile] [outfile] [arguments]
+                 
+                 infile must be a calc file on your computer
+                 (with extension ie. 8xp/89t/etc)
+
+                 outfile MUST be the name of the text file you
+                 wish to output with .txt extension.
+
+      arguments: nifty - use this if the input file is a NIFTY
+                         formatted file.  The output file will
+                         follow the NML format, and won't include
+                         all the tags.
+                         (for more information on NIFTY, download
+                         the Flash App from TICalc.org for your
+                         TI-83+)
+
+                 colon - :use this if you want each new line in
+                         :the output file to start with a colon
+                         :as it would if you were viewing it on
+                         :a calculator.
+                         :
+                         :Isn't this annoying?
+
+                 sysversion - This argument is really for developers.
+                              It will set the end return code to the
+                              current version of ALPHA.
+                              If you don't know what this is, don't
+                              worry about it.
+
+                              NOTE: The current version of nifty is
+                                    1.00, thus the return code will
+                                    be "1"
+                                    You do not need to include in/out
+                                    files when using this argument
+
+   future plans: I NEED to add support for extended characters and all
+                 that <censored>!
+
+                 I need to add support for more commands on the TI-83
+
+                 I'd like to be able to convert text files back to
+                 calc files (even though it would take 3x as much
+                 work!)
+
+                 I WILL add support for the TI-86 and anything else
+                 you want.
+
+                 I will add support for more variaties of formatted
+                 text.
+
+
+ special thanks: Roman Lievin for fully documenting the 89/92 file format,
+                 without whom this would have never been possible.
+
+                 Peter Martijn for creating Nifty, which is the coolest
+                 thing ever, and documenting the 8xp format, whithout
+                 whom this would have never been possible.
+
+                 Wilson W. Ng cause he seems like a cool guy.
+
+                 Who ever created Lemmingz 83+
+
+                 My guitar who helps me not kill someone when I screw
+                 up my code.
+
+                 TICalc.org I couldn't forget the coolest site
+                 ever!
+
+                 Everyone who's heard of Integer Software.
+                 You know what I'm talkin' about.
+
+   No thanks to: Texas Insturments for makin' the 8xp format so
+                 #$@* complicated.
+
+                 Ross cause he's stupid.
+
+                 Whoever created the ARPG construction kit.
+                 (what were you thinking?)
+
+                 People who download this and never use it
+                 (why would you do that?)
+
+
+                 
+
