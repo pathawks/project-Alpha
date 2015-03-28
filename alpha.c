@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "tifileutils/tifileutils.h"
 
 void displayHeader() {
 	printf(
@@ -42,6 +43,7 @@ static inline void displayHelp( char *programName ) {
 }
 
 int main( int argc, char **argv ) {
+    FILE *in, *out;
 
 	displayHeader();
 
@@ -50,6 +52,7 @@ int main( int argc, char **argv ) {
         return EXIT_FAILURE;
     }
 
+    in = fopen(argv[1], "r");
 
 	return EXIT_SUCCESS;
 }
