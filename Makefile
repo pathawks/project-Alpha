@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS= -Wall
+CFLAGS= -Wall -Wextra -O3
 
 all:
-	$(CC) $(CFLAGS) alpha.c -O3 -o alpha
+	$(CC) $(CFLAGS) alpha.c -o alpha
