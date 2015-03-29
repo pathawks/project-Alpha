@@ -24,7 +24,7 @@ void displayHeader() {
 	return;
 }
 
-static inline void displayHelp( char *programName ) {
+void displayHelp( char *programName ) {
 	printf(
         "%s [inputfile.extension] [outputfile.extension 2] [arguments]\n"
         "\n"
@@ -42,8 +42,11 @@ static inline void displayHelp( char *programName ) {
 	return;
 }
 
-int main( int argc, char **argv ) {
-    FILE *in, *out;
+int main( int argc, char** argv ) {
+    const char*  inFileName = argv[1];
+    const char* outFileName = argv[2];
+    FILE* inFile;
+	FILE* outFile;
 
 	displayHeader();
 
@@ -52,7 +55,25 @@ int main( int argc, char **argv ) {
         return EXIT_FAILURE;
     }
 
-    in = fopen(argv[1], "r");
+    if( !(inFile = fopen(inFileName, "r"))){
+		perror("Error opening input file");
+		return EXIT_FAILURE;
+	}
+	if ( !(outFile = fopen(outFileName, "r"))) {
+//		perror("Error opening output file");
+//		return EXIT_FAILURE;
+	}
+
+	const CalcType* TI = tiDetectFileType( inFile );
+
+	if (!TI) {
+		printf("%s\n", "Input file is not a recognized calculator file type");
+		return EXIT_FAILURE;
+	}
+
+	fclose(inFile);
+	fclose(outFile);
+	printf("%s", "Finshed!\n");
 
 	return EXIT_SUCCESS;
 }
