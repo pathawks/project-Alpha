@@ -5,6 +5,6 @@
 #include <string.h>
 #include "ticalcfamily.h"
 
-const CalcType* tiDetectFileType(FILE* file);
+CalcType tiDetectFileType(FILE* file);
 
 #endif

@@ -3,10 +3,12 @@
 
 #include <stdlib.h>
 
-typedef struct {
+struct Calc {
     const char* MAGIC_NUMBER;
     const char* NAME;
-} CalcType;
+};
+
+typedef const struct Calc* CalcType;
 
 const CalcType TI73;
 const CalcType TI82;
@@ -17,6 +19,6 @@ const CalcType TI86;
 const CalcType TI89;
 const CalcType TI92;
 const CalcType TI92P;
-CalcType const* const* TI_FAMILY;
+const CalcType* TI_FAMILY;
 
 #endif
