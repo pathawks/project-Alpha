@@ -42,6 +42,7 @@
 #define TITOKEN_THETA     "𝛳"
 #define TITOKEN_TRIANGLE  "►"
 #define TITOKEN_XRT       "ˣ√"
+#define TITOKEN_X_MEAN    "x̅"
 
 const char* const TI_TOKEN_LISTS[10] = {
     TITOKEN_LIST_L TITOKEN_SUB_ONE,
