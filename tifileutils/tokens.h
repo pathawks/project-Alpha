@@ -8,13 +8,15 @@
 #define TITOKEN_DELTA     "𝛥"
 #define TITOKEN_E         "⋿"
 #define TITOKEN_e         "𝑒"
-#define TITOKEN_EPSILON   "∑"
 #define TITOKEN_F         "𝐅"
 #define TITOKEN_i         "𝑖"
 #define TITOKEN_LIST_L    "ʟ"
 #define TITOKEN_N         "N"
 #define TITOKEN_PI        "𝜋"
+#define TITOKEN_PHAT      "p̂"
+#define TITOKEN_SIGMA     "𝜎"
 #define TITOKEN_SQRT      "√"
+#define TITOKEN_SUMMATION "∑" /* N-ARY SUMMATION */
 #define TITOKEN_SUB_ZERO  "₀"
 #define TITOKEN_SUB_ONE   "₁"
 #define TITOKEN_SUB_TWO   "₂"
@@ -43,6 +45,7 @@
 #define TITOKEN_TRIANGLE  "►"
 #define TITOKEN_XRT       "ˣ√"
 #define TITOKEN_X_MEAN    "x̅"
+#define TITOKEN_Y_MEAN    "y̅"
 
 const char* const TI_TOKEN_LISTS[10] = {
     TITOKEN_LIST_L TITOKEN_SUB_ONE,
