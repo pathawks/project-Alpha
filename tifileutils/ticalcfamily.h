@@ -6,6 +6,7 @@
 struct Calc {
     const char* MAGIC_NUMBER;
     const char* NAME;
+    const int SIZE_OFFSET;
 };
 
 typedef const struct Calc* CalcType;

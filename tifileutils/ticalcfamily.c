@@ -2,47 +2,56 @@
 
 const struct Calc sTI73 = {
     "**TI73**",
-    "TI-73"
+    "TI-73",
+    0x47,
 };
 
 const struct Calc sTI82 = {
     "**TI82**",
-    "TI-82"
+    "TI-82",
+    0x47,
 };
 
 const struct Calc sTI83 = {
     "**TI83**",
-    "TI-83"
+    "TI-83",
+    0x47,
 };
 
 const struct Calc sTI83P = {
     "**TI83F*",
-    "TI-84+"
+    "TI-84+",
+    0x47,
 };
 
 const struct Calc sTI85 = {
     "**TI85**",
-    "TI-85"
+    "TI-85",
+    0x39,
 };
 
 const struct Calc sTI86 = {
     "**TI86**",
-    "TI-86"
+    "TI-86",
+    0x39,
 };
 
 const struct Calc sTI89 = {
     "**TI89**",
-    "TI-89"
+    "TI-89",
+    0x56,
 };
 
 const struct Calc sTI92 = {
     "**TI92**",
-    "TI-92"
+    "TI-92",
+    0x56,
 };
 
 const struct Calc sTI92P = {
     "**TI92P*",
-    "TI-92+"
+    "TI-92+",
+    0x56,
 };
 
 const CalcType TI73  = &sTI73;
@@ -55,7 +64,7 @@ const CalcType TI89  = &sTI89;
 const CalcType TI92  = &sTI92;
 const CalcType TI92P = &sTI92P;
 
-CalcType tiFamilyArray[] = {
+const CalcType tiFamilyArray[] = {
     &sTI73,
     &sTI82,
     &sTI83,

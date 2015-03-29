@@ -5,6 +5,7 @@
 #include <string.h>
 #include "ticalcfamily.h"
 
-CalcType tiDetectFileType(FILE* file);
+CalcType tiDetectFileType(FILE*);
+char** loadTokens(CalcType);
 
 #endif
