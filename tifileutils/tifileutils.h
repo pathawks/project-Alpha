@@ -8,4 +8,6 @@
 CalcType tiDetectFileType(FILE*);
 char** loadTokens(CalcType);
 
+int tiCalcToText(FILE*, FILE*);
+
 #endif

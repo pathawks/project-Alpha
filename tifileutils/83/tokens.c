@@ -2,7 +2,8 @@
 #include "../tokens.h"
 #include "tokens.h"
 
-const char* const tifileutils_tokens_83_62[44] = {
+const char* const tifileutils_tokens_83_62[0x3C + 2] = {
+    /* Highest token in list */ (const char *const) 0x3C,
     /* 00 */ NULL,
     /* 01 */ "RegEq",
     /* 02 */ "n",
@@ -57,7 +58,7 @@ const char* const tifileutils_tokens_83_62[44] = {
     /* 33 */ "upper",
     /* 34 */ "s",
     /* 35 */ "r" TITOKEN_SUP_TWO,
-    /* 36 */ "R" TITOKEN_SUP_TWO,,
+    /* 36 */ "R" TITOKEN_SUP_TWO,
     /* 37 */ "df",
     /* 38 */ "SS",
     /* 39 */ "MS",
@@ -66,7 +67,8 @@ const char* const tifileutils_tokens_83_62[44] = {
     /* 3C */ "MS",
 };
 
-const char* const tifileutils_tokens_83_7E[19] = {
+const char* const tifileutils_tokens_83_7E[0xA2 + 2] = {
+    /* Highest token in list */ (const char *const) 0xA2,
     /* 00 */ "Sequential",
     /* 01 */ "Simul",
     /* 02 */ "PolarGC",
@@ -88,7 +90,8 @@ const char* const tifileutils_tokens_83_7E[19] = {
     /* A2 */ "uwAxes",
 };
 
-const char* const tifileutils_tokens_83_BB[92] = {
+const char* const tifileutils_tokens_83_BB[0x5B + 2] = {
+    /* Highest token in list */ (const char *const) 0x5B,
     /* 00 */ "npv(",
     /* 01 */ "irr(",
     /* 02 */ "bal(",

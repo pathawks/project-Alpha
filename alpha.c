@@ -64,16 +64,10 @@ int main( int argc, char** argv ) {
 //		return EXIT_FAILURE;
 	}
 
-	const CalcType TI = tiDetectFileType( inFile );
-
-	if (!TI) {
-		printf("%s\n", "Input file is not a recognized calculator file type");
-		return EXIT_FAILURE;
-	}
+	int exit_code = tiCalcToText( inFile, outFile );
 
 	fclose(inFile);
 	fclose(outFile);
-	printf("%s", "Finshed!\n");
 
-	return EXIT_SUCCESS;
+	return exit_code;
 }
