@@ -59,7 +59,7 @@ int main( int argc, char** argv ) {
 		perror("Error opening input file");
 		return EXIT_FAILURE;
 	}
-	if ( !(outFile = fopen(outFileName, "r"))) {
+	if ( !(outFile = fopen(outFileName, "w"))) {
 //		perror("Error opening output file");
 //		return EXIT_FAILURE;
 	}

@@ -39,19 +39,19 @@ const struct Calc sTI86 = {
 const struct Calc sTI89 = {
     "**TI89**",
     "TI-89",
-    0x56,
+    0x4C,
 };
 
 const struct Calc sTI92 = {
     "**TI92**",
     "TI-92",
-    0x56,
+    0x4C,
 };
 
 const struct Calc sTI92P = {
     "**TI92P*",
     "TI-92+",
-    0x56,
+    0x4C,
 };
 
 const CalcType TI73  = &sTI73;

@@ -47,7 +47,8 @@
 #define TITOKEN_X_MEAN    "x̅"
 #define TITOKEN_Y_MEAN    "y̅"
 
-const char* const TI_TOKEN_LISTS[10] = {
+const char* const TI_TOKEN_LISTS[10 + 1] = {
+    (char *)10,
     TITOKEN_LIST_L TITOKEN_SUB_ONE,
     TITOKEN_LIST_L TITOKEN_SUB_TWO,
     TITOKEN_LIST_L TITOKEN_SUB_THREE,
@@ -60,7 +61,8 @@ const char* const TI_TOKEN_LISTS[10] = {
     TITOKEN_LIST_L TITOKEN_SUB_ZERO,
 };
 
-const char* const TI_TOKEN_Y[10] = {
+const char* const TI_TOKEN_Y[10 + 1] = {
+    (char *)10,
     "Y" TITOKEN_SUB_ONE,
     "Y" TITOKEN_SUB_TWO,
     "Y" TITOKEN_SUB_THREE,
@@ -73,7 +75,8 @@ const char* const TI_TOKEN_Y[10] = {
     "Y" TITOKEN_SUB_ZERO,
 };
 
-const char* const TI_TOKEN_STR[10] = {
+const char* const TI_TOKEN_STR[10 + 1] = {
+    (char *) 10,
     "Str1",
     "Str2",
     "Str3",
@@ -86,7 +89,8 @@ const char* const TI_TOKEN_STR[10] = {
     "Str0",
 };
 
-const char* const TI_TOKEN_PIC[10] = {
+const char* const TI_TOKEN_PIC[10 + 1] = {
+    (char *) 10,
     "Pic1",
     "Pic2",
     "Pic3",
@@ -99,7 +103,8 @@ const char* const TI_TOKEN_PIC[10] = {
     "Pic0",
 };
 
-const char* const TI_TOKEN_GDB[10] = {
+const char* const TI_TOKEN_GDB[10 + 1] = {
+    (char *) 10,
     "GDB1",
     "GDB2",
     "GDB3",
@@ -112,7 +117,8 @@ const char* const TI_TOKEN_GDB[10] = {
     "GDB0",
 };
 
-const char* const TI_TOKEN_MATRIX[10] = {
+const char* const TI_TOKEN_MATRIX[10 + 1] = {
+    (char *) 10,
     "[A]",
     "[B]",
     "[C]",
