@@ -62,9 +62,11 @@ int tiCalcToText(FILE* in, FILE* out) {
         switch( c ) {
         case 0x5C:
         case 0x5D:
+        case 0x5E:
         case 0x60:
         case 0x61:
         case 0x62:
+        case 0x63:
         case 0x7E:
         case 0xAA:
         case 0xBB:
