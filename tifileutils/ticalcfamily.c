@@ -77,4 +77,4 @@ const CalcType tiFamilyArray[] = {
     NULL
 };
 
-const CalcType *TI_FAMILY = tiFamilyArray;
+const CalcType *const TI_FAMILY = tiFamilyArray;

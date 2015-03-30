@@ -485,7 +485,7 @@ const char* const tifileutils_tokens_83_BB[0xCA + 2] = {
     /* CA */ "z",
 };
 
-const char* const tifileutils_tokens_83[] = {
+const char* const tifileutils_tokens_83[0x100] = {
     /* 00 */ NULL,
     /* 01 */ TITOKEN_TRIANGLE "DMS",
     /* 02 */ TITOKEN_TRIANGLE "Dec",
@@ -743,3 +743,5 @@ const char* const tifileutils_tokens_83[] = {
     /* FE */ "Scatter",
     /* FF */ "LinReg(ax+b)",
 };
+
+const char *const *const TIFILEUTILS_TOKENS_83 = tifileutils_tokens_83;

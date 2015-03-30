@@ -20,6 +20,6 @@ const CalcType TI86;
 const CalcType TI89;
 const CalcType TI92;
 const CalcType TI92P;
-const CalcType* TI_FAMILY;
+const CalcType *const TI_FAMILY;
 
 #endif

@@ -32,7 +32,6 @@ int tiCalcFileSize(FILE* in, CalcType inCalc) {
 
 int tiCalcToText(FILE* in, FILE* out) {
     int inFileSize;
-    char * const* tiTokenList = (char *const *)tifileutils_tokens_83;
     int c;
     CalcType inCalc;
 
@@ -72,11 +71,11 @@ int tiCalcToText(FILE* in, FILE* out) {
         case 0xBB:
             --inFileSize;
             int d = getc( in );
-            if (d <= (*tiTokenList[c]&0xFF))
-                fprintf( out, "%s", ((char ***)tiTokenList)[c][d+1] );
+            if (d <= (*TIFILEUTILS_TOKENS_83[c]&0xFF))
+                fprintf( out, "%s", ((char ***)TIFILEUTILS_TOKENS_83)[c][d+1] );
             continue;
 		default:
-			fprintf( out, "%s", tiTokenList[c] );
+			fprintf( out, "%s", TIFILEUTILS_TOKENS_83[c] );
         }
     }
 
