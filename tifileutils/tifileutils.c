@@ -71,7 +71,7 @@ int tiCalcToText(FILE* in, FILE* out) {
             --inFileSize;
             int d = getc( in );
             if (d <= (*tiTokenList[c]&0xFF))
-                fprintf( out, "%s", *(char **)(tiTokenList[c] + (d+1)*sizeof(tiTokenList)) );
+                fprintf( out, "%s", ((char ***)tiTokenList)[c][d+1] );
             continue;
 		default:
 			fprintf( out, "%s", tiTokenList[c] );
