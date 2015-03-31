@@ -1,6 +1,7 @@
 #include "tifileutils.h"
 #include "83/tokens.h"
 #include "85/tokens.h"
+#include "92/tokens.h"
 
 CalcType tiDetectFileType(FILE* file) {
     char magicNumber[12];
@@ -110,8 +111,8 @@ int tiCalcToText(FILE* in, FILE* out) {
         	}
             switch( c ) {
             case 0xE1: // Goto token;            zero-terminated string follows
-                getc( in ), --inFileSize;
-                getc( in ), --inFileSize;
+                while (--inFileSize,!(d = getc( in )));
+                ++inFileSize,ungetc( d, in );
             case 0xE0: // Lbl token;             zero-terminated string follows
             case 0x2D: // opening quote;         zero-terminated string follows
 				fprintf( out, "%s", TIFILEUTILS_TOKENS_85[c] );
@@ -144,7 +145,7 @@ int tiCalcToText(FILE* in, FILE* out) {
 			case 0x33:
 				fprintf( out, "%c", getc( in ) );
                 --inFileSize;
-				break;
+				continue;
             case 0x32: // variable-name tokens
             case 0x3B: // variable-name tokens
             case 0x3C: // variable-name tokens
