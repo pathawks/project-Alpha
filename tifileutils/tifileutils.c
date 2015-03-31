@@ -57,8 +57,13 @@ int tiCalcToText(FILE* in, FILE* out) {
 
     inFileSize = tiCalcFileSize( in, inCalc );
 
-    printf("Input Calc: %s\n", inCalc->NAME);
+//    printf("Input Calc: %s\n", inCalc->NAME);
 
+    /* Because the TI-84+CSE/CE uses a *few* different symbols than earlier
+     * members of the TI-83/84+ family, we should do something differently for
+     * it. We *can* reliably detect if a file was created on / is intended for
+     * a TI-84+CE, so that's half the battle...
+     */
     if (inCalc->FAMILY == TI83) {
     	while( inFileSize-- ) {
         	c = getc( in );

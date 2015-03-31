@@ -55,7 +55,7 @@ int main( int argc, char** argv ) {
         return EXIT_FAILURE;
     }
 
-    if( !(inFile = fopen(inFileName, "rb"))){
+    if( !(inFile = fopen(inFileName, "r"))){
 		perror("Error opening input file");
 		return EXIT_FAILURE;
 	}
