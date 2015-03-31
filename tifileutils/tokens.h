@@ -8,6 +8,8 @@
 #define TITOKEN_DEGREE    "°"
 #define TITOKEN_DELTA     "𝚫"
 #define TITOKEN_delta     "𝛿"
+#define TITOKEN_DOT       "∙"
+#define TITOKEN_DOT_SM    "⋅"
 #define TITOKEN_E         "⋿"
 #define TITOKEN_e         "𝑒"
 #define TITOKEN_epsilon   "𝜖"
@@ -25,6 +27,7 @@
 #define TITOKEN_PHAT      "p̂"
 #define TITOKEN_SIGMA     "𝜎"
 #define TITOKEN_SQRT      "√"
+#define TITOKEN_SQUARE    "□"
 #define TITOKEN_SUMMATION "∑" /* N-ARY SUMMATION */
 #define TITOKEN_SUB_N_ONE "₋₁"
 #define TITOKEN_SUB_ZERO  "₀"
