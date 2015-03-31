@@ -73,15 +73,20 @@ int tiCalcToText(FILE* in, FILE* out) {
             case 0xBB:
             case 0xEF:
                 --inFileSize;
-                int d = getc( in );
-                if (d <= *TIFILEUTILS_TOKENS_83[c]) {
+                unsigned int d = getc( in );
+                if (d <= (unsigned int)*TIFILEUTILS_TOKENS_83[c]) {
                     fprintf( out, "%s", ((char ***)TIFILEUTILS_TOKENS_83)[c][d+1] );
                     if (!((char ***)TIFILEUTILS_TOKENS_83)[c][d+1])
-                        printf("\nUnknown Token: %.2X%.2X\n", c, d);
+                        fprintf( out, "[Unknown Token: %.2X%.2X]", c, d);
+                } else {
+                    fprintf( out, "[Out of range Token: %.4X%.4X]", c, d);
                 }
                 continue;
     		default:
-    			fprintf( out, "%s", TIFILEUTILS_TOKENS_83[c] );
+                if (TIFILEUTILS_TOKENS_83[c])
+    		        fprintf( out, "%s", TIFILEUTILS_TOKENS_83[c] );
+                else
+                    fprintf( out, "[Unknown Token: %.2X]", c );
             }
         }
     } else if (inCalc->FAMILY == TI86) {
