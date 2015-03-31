@@ -10,7 +10,7 @@ const struct Calc sTI83 = {
 const struct Calc sTI73 = {
     "**TI73**\x1A\x0A",
     "TI-73",
-    0x47,
+    0x45,
     &sTI83,
 };
 
