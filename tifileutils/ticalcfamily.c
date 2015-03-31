@@ -37,7 +37,7 @@ const struct Calc sTI84P = {
 
 const struct Calc sTI84PC = {
     "**TI83F*\x1A\x0A\x0F",
-    "TI-84+C",
+    "TI-84+CE",
     0x47,
     &sTI83,
 };
@@ -81,7 +81,7 @@ const CalcType TI73   = &sTI73;
 const CalcType TI82   = &sTI82;
 const CalcType TI83   = &sTI83;
 const CalcType TI83P  = &sTI83P;
-const CalcType TI84P  = &sTI84P ;
+const CalcType TI84P  = &sTI84P;
 const CalcType TI84PC = &sTI84PC;
 const CalcType TI85   = &sTI85;
 const CalcType TI86   = &sTI86;
