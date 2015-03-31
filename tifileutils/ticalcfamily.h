@@ -18,6 +18,8 @@ const CalcType TI73;
 const CalcType TI82;
 const CalcType TI83;
 const CalcType TI83P;
+const CalcType TI84P;
+const CalcType TI84PC;
 const CalcType TI85;
 const CalcType TI86;
 const CalcType TI89;

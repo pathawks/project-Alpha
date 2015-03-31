@@ -3,11 +3,15 @@
 #include "85/tokens.h"
 
 CalcType tiDetectFileType(FILE* file) {
-    char magicNumber[9];
+    char magicNumber[12];
+    int i;
 
     if (file == NULL) { goto error; }
     rewind(file);
-    if (fgets (magicNumber, 9, file) == NULL) { goto error; }
+
+    for (i = 0; i < 11; i++)
+        magicNumber[i] = getc(file);
+    magicNumber[i] = '\0';
 
     const CalcType *calc = TI_FAMILY;
     do {
@@ -52,6 +56,8 @@ int tiCalcToText(FILE* in, FILE* out) {
     }
 
     inFileSize = tiCalcFileSize( in, inCalc );
+
+    printf("Input Calc: %s\n", inCalc->NAME);
 
     if (inCalc->FAMILY == TI83) {
     	while( inFileSize-- ) {
