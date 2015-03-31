@@ -169,6 +169,28 @@ int tiCalcToText(FILE* in, FILE* out) {
     			fprintf( out, "%s", TIFILEUTILS_TOKENS_85[c] );
             }
         }
+    } else if (inCalc->FAMILY == TI92) {
+
+        fseek( in, 0x49, SEEK_SET );
+		int tokenizedFile = fgetc( in );
+
+        if (!tokenizedFile) {
+            inFileSize -= 4;
+            getc( in ),getc( in ),getc( in ),getc( in ),getc( in ),getc( in ),getc( in ),getc( in );
+            while ( inFileSize-- ) {
+            	c = getc( in );
+            	if( feof( in ) ) {
+            		printf( "END OF FILE REACHED!" );
+            		return EXIT_FAILURE;
+            	}
+                fprintf( out, "%c", c );
+            }
+        } else {
+    		printf( "Tokenized TI-92 files not yet implemented\n" );
+            return EXIT_FAILURE;
+        }
+    } else {
+        return EXIT_FAILURE;
     }
 
     return EXIT_SUCCESS;
