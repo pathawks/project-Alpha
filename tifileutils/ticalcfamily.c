@@ -1,57 +1,66 @@
 #include "ticalcfamily.h"
 
+const struct Calc sTI83 = {
+    "**TI83**",
+    "TI-83",
+    0x47,
+    &sTI83,
+};
+
 const struct Calc sTI73 = {
     "**TI73**",
     "TI-73",
     0x47,
+    &sTI83,
 };
 
 const struct Calc sTI82 = {
     "**TI82**",
     "TI-82",
     0x47,
-};
-
-const struct Calc sTI83 = {
-    "**TI83**",
-    "TI-83",
-    0x47,
+    &sTI83,
 };
 
 const struct Calc sTI83P = {
     "**TI83F*",
     "TI-84+",
     0x47,
+    &sTI83,
 };
 
 const struct Calc sTI85 = {
     "**TI85**",
     "TI-85",
     0x39,
+    &sTI85,
 };
 
 const struct Calc sTI86 = {
     "**TI86**",
     "TI-86",
     0x39,
-};
-
-const struct Calc sTI89 = {
-    "**TI89**",
-    "TI-89",
-    0x4C,
+    &sTI85,
 };
 
 const struct Calc sTI92 = {
     "**TI92**",
     "TI-92",
     0x4C,
+    &sTI92,
+};
+
+const struct Calc sTI89 = {
+    "**TI89**",
+    "TI-89",
+    0x4C,
+    &sTI92,
 };
 
 const struct Calc sTI92P = {
     "**TI92P*",
     "TI-92+",
     0x4C,
+    &sTI92,
 };
 
 const CalcType TI73  = &sTI73;

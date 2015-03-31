@@ -52,30 +52,68 @@ int tiCalcToText(FILE* in, FILE* out) {
 
     inFileSize = tiCalcFileSize( in, inCalc );
 
-	while( inFileSize-- ) {
-    	c = getc( in );
-    	if( feof( in ) ) {
-    		printf( "END OF FILE REACHED!" );
-    		return EXIT_FAILURE;
-    	}
-        switch( c ) {
-        case 0x5C:
-        case 0x5D:
-        case 0x5E:
-        case 0x60:
-        case 0x61:
-        case 0x62:
-        case 0x63:
-        case 0x7E:
-        case 0xAA:
-        case 0xBB:
-            --inFileSize;
-            int d = getc( in );
-            if (d <= (*TIFILEUTILS_TOKENS_83[c]&0xFF))
-                fprintf( out, "%s", ((char ***)TIFILEUTILS_TOKENS_83)[c][d+1] );
-            continue;
-		default:
-			fprintf( out, "%s", TIFILEUTILS_TOKENS_83[c] );
+    if (inCalc->FAMILY == TI83) {
+    	while( inFileSize-- ) {
+        	c = getc( in );
+        	if( feof( in ) ) {
+        		printf( "END OF FILE REACHED!" );
+        		return EXIT_FAILURE;
+        	}
+            switch( c ) {
+            case 0x5C:
+            case 0x5D:
+            case 0x5E:
+            case 0x60:
+            case 0x61:
+            case 0x62:
+            case 0x63:
+            case 0x7E:
+            case 0xAA:
+            case 0xBB:
+                --inFileSize;
+                int d = getc( in );
+                if (d <= (*TIFILEUTILS_TOKENS_83[c]&0xFF))
+                    fprintf( out, "%s", ((char ***)TIFILEUTILS_TOKENS_83)[c][d+1] );
+                continue;
+    		default:
+    			fprintf( out, "%s", TIFILEUTILS_TOKENS_83[c] );
+            }
+        }
+    } else if (inCalc->FAMILY == TI86) {
+    	while( inFileSize-- ) {
+        	c = getc( in );
+        	if( feof( in ) ) {
+        		printf( "END OF FILE REACHED!" );
+        		return EXIT_FAILURE;
+        	}
+            switch( c ) {
+            case 0x2D: // opening quote;         zero-terminated string follows
+            case 0xE0: // Lbl token;             zero-terminated string follows
+            case 0xE1: // Goto token;            zero-terminated string follows
+            case 0x44: // literal-number token;  zero-terminated string follows
+            case 0x33: // 1 char var
+            case 0x34: // 2 char var
+            case 0x35: // 3 char var
+            case 0x36: // 4 char var
+            case 0x37: // 5 char var
+            case 0x38: // 6 char var
+            case 0x39: // 7 char var
+            case 0x3A: // 8 char var
+            case 0x32: // variable-name tokens
+            case 0x3B: // variable-name tokens
+            case 0x3C: // variable-name tokens
+            case 0x3E: // conversion token
+                continue;
+            case 0x3D:
+            case 0x8E:
+                --inFileSize;
+                int d = getc( in );
+                if (d <= (*TIFILEUTILS_TOKENS_83[c]&0xFF))
+                    fprintf( out, "%s", ((char ***)TIFILEUTILS_TOKENS_83)[c][d+1] );
+                continue;
+    		default:
+    			fprintf( out, "%s", TIFILEUTILS_TOKENS_83[c] );
+            }
         }
     }
 

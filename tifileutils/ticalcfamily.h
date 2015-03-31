@@ -3,13 +3,16 @@
 
 #include <stdlib.h>
 
+struct Calc;
+
+typedef const struct Calc* CalcType;
+
 struct Calc {
     const char* MAGIC_NUMBER;
     const char* NAME;
     const int SIZE_OFFSET;
+    const CalcType FAMILY;
 };
-
-typedef const struct Calc* CalcType;
 
 const CalcType TI73;
 const CalcType TI82;
