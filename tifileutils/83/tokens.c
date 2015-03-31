@@ -270,11 +270,11 @@ const char* const tifileutils_tokens_83_7E[0x12 + 2] = {
     /* 03 */ "RectGC",
     /* 04 */ "CoordOn",
     /* 05 */ "CoordOff",
-    /* 06 */ "Thick", /* ... previously "Connected" */
-    /* 07 */ "Dot-Thick", /* ...or just "Dot" pre-84+? */
+    /* 06 */ "Thick", /* Previously "Connected" */
+    /* 07 */ "Dot-Thick", /* Previously "Dot" */
     /* 08 */ "AxesOn ",
     /* 09 */ "AxesOff",
-    /* 0A */ "GridDot ", /* ...or just "GridOn" pre-84+? */
+    /* 0A */ "GridDot ", /* Previously "GridOn" */
     /* 0B */ "GridOff",
     /* 0C */ "LabelOn",
     /* 0D */ "LabelOff",
@@ -377,7 +377,7 @@ const char* const tifileutils_tokens_83_BB[0xCE + 2] = {
     /* 57 */ "Clear Entries",
     /* 58 */ "Select(",
     /* 59 */ "ANOVA(",
-    /* 5A */ "ModBoxPlot",
+    /* 5A */ "ModBoxPlot", /* Previously: "ModBoxplot" */
     /* 5B */ "NormProbPlot",
     /* 5C */ NULL,
     /* 5D */ NULL,
@@ -395,7 +395,7 @@ const char* const tifileutils_tokens_83_BB[0xCE + 2] = {
     /* 69 */ "UnArchive ",
     /* 6A */ "Asm(",
     /* 6B */ "AsmComp(",
-    /* 6C */ NULL,
+    /* 6C */ "AsmPrgm",
     /* 6D */ NULL,
     /* 6E */ NULL,
     /* 6F */ NULL,
@@ -559,7 +559,7 @@ const char* const tifileutils_tokens_83_EF[0x075 + 2] = {
     /* 3A */ NULL,
     /* 3B */ "AUTO",
     /* 3C */ "DEC",
-    /* 3D */ "FRAC-APPROX",
+    /* 3D */ "FRAC-APPROX", /* Previously "FRAC" */
     /* 3E */ NULL,
     /* 3F */ "STATWIZARD ON",
     /* 40 */ "STATWIZARD OFF",
