@@ -1,5 +1,6 @@
 #include "tifileutils.h"
 #include "83/tokens.h"
+#include "85/tokens.h"
 
 CalcType tiDetectFileType(FILE* file) {
     char magicNumber[9];
