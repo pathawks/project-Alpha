@@ -88,8 +88,9 @@ int tiCalcToText(FILE* in, FILE* out) {
                 --inFileSize;
                 d = getc( in );
                 if (d <= (unsigned int)*TIFILEUTILS_TOKENS_83[c]) {
-                    fprintf( out, "%s", ((char ***)TIFILEUTILS_TOKENS_83)[c][d+1] );
-                    if (!((char ***)TIFILEUTILS_TOKENS_83)[c][d+1])
+                    if (((char ***)TIFILEUTILS_TOKENS_83)[c][d+1])
+                        fprintf( out, "%s", ((char ***)TIFILEUTILS_TOKENS_83)[c][d+1] );
+                    else
                         fprintf( out, "[Unknown Token: %.2X%.2X]", c, d);
                 } else {
                     fprintf( out, "[Out of range Token: %.4X%.4X]", c, d);
