@@ -71,10 +71,14 @@ int tiCalcToText(FILE* in, FILE* out) {
             case 0x7E:
             case 0xAA:
             case 0xBB:
+            case 0xEF:
                 --inFileSize;
                 int d = getc( in );
-                if (d <= (*TIFILEUTILS_TOKENS_83[c]&0xFF))
+                if (d <= *TIFILEUTILS_TOKENS_83[c]) {
                     fprintf( out, "%s", ((char ***)TIFILEUTILS_TOKENS_83)[c][d+1] );
+                    if (!((char ***)TIFILEUTILS_TOKENS_83)[c][d+1])
+                        printf("\nUnknown Token: %.2X%.2X\n", c, d);
+                }
                 continue;
     		default:
     			fprintf( out, "%s", TIFILEUTILS_TOKENS_83[c] );
