@@ -45,14 +45,14 @@ const struct Calc sTI84PC = {
 const struct Calc sTI85 = {
     "**TI85**\x1A\x0C",
     "TI-85",
-    0x39,
+    0x43,
     &sTI85,
 };
 
 const struct Calc sTI86 = {
-    "**TI86**\x1A",
+    "**TI86**\x1A\x0A",
     "TI-86",
-    0x39,
+    0x43,
     &sTI85,
 };
 

@@ -38,6 +38,7 @@ int tiCalcFileSize(FILE* in, CalcType inCalc) {
 int tiCalcToText(FILE* in, FILE* out) {
     int inFileSize;
     int c;
+    unsigned int d;
     CalcType inCalc;
 
     if (!in) {
@@ -84,7 +85,7 @@ int tiCalcToText(FILE* in, FILE* out) {
             case 0xBB:
             case 0xEF:
                 --inFileSize;
-                unsigned int d = getc( in );
+                d = getc( in );
                 if (d <= (unsigned int)*TIFILEUTILS_TOKENS_83[c]) {
                     fprintf( out, "%s", ((char ***)TIFILEUTILS_TOKENS_83)[c][d+1] );
                     if (!((char ***)TIFILEUTILS_TOKENS_83)[c][d+1])
@@ -100,7 +101,7 @@ int tiCalcToText(FILE* in, FILE* out) {
                     fprintf( out, "[Unknown Token: %.2X]", c );
             }
         }
-    } else if (inCalc->FAMILY == TI86) {
+    } else if (inCalc->FAMILY == TI85) {
     	while( inFileSize-- ) {
         	c = getc( in );
         	if( feof( in ) ) {
@@ -108,32 +109,63 @@ int tiCalcToText(FILE* in, FILE* out) {
         		return EXIT_FAILURE;
         	}
             switch( c ) {
-            case 0x2D: // opening quote;         zero-terminated string follows
-            case 0xE0: // Lbl token;             zero-terminated string follows
             case 0xE1: // Goto token;            zero-terminated string follows
+                getc( in ), --inFileSize;
+                getc( in ), --inFileSize;
+            case 0xE0: // Lbl token;             zero-terminated string follows
+            case 0x2D: // opening quote;         zero-terminated string follows
+				fprintf( out, "%s", TIFILEUTILS_TOKENS_85[c] );
             case 0x44: // literal-number token;  zero-terminated string follows
-            case 0x33: // 1 char var
-            case 0x34: // 2 char var
-            case 0x35: // 3 char var
-            case 0x36: // 4 char var
-            case 0x37: // 5 char var
-            case 0x38: // 6 char var
-            case 0x39: // 7 char var
-            case 0x3A: // 8 char var
+				while ((--inFileSize,c=getc( in ))) {
+                    fprintf( out, "%c", c );
+                }
+                continue;
+			case 0x3A: // { These are all intended to fall through!
+				fprintf( out, "%c", getc( in ) );
+                --inFileSize;
+			case 0x39:
+				fprintf( out, "%c", getc( in ) );
+                --inFileSize;
+			case 0x38:
+				fprintf( out, "%c", getc( in ) );
+                --inFileSize;
+			case 0x37:
+				fprintf( out, "%c", getc( in ) );
+                --inFileSize;
+			case 0x36:
+				fprintf( out, "%c", getc( in ) );
+                --inFileSize;
+			case 0x35:
+				fprintf( out, "%c", getc( in ) );
+                --inFileSize;
+			case 0x34:
+				fprintf( out, "%c", getc( in ) );
+                --inFileSize;
+			case 0x33:
+				fprintf( out, "%c", getc( in ) );
+                --inFileSize;
+				break;
             case 0x32: // variable-name tokens
             case 0x3B: // variable-name tokens
             case 0x3C: // variable-name tokens
+                --inFileSize;
+                d = getc( in );
+				do {
+                    fprintf( out, "%c", getc( in ) );
+                    --inFileSize;
+                } while (--d);
+                continue;
             case 0x3E: // conversion token
                 continue;
             case 0x3D:
             case 0x8E:
                 --inFileSize;
                 int d = getc( in );
-                if (d <= (*TIFILEUTILS_TOKENS_83[c]&0xFF))
-                    fprintf( out, "%s", ((char ***)TIFILEUTILS_TOKENS_83)[c][d+1] );
+                if (d <= (*TIFILEUTILS_TOKENS_85[c]&0xFF))
+                    fprintf( out, "%s", ((char ***)TIFILEUTILS_TOKENS_85)[c][d+1] );
                 continue;
     		default:
-    			fprintf( out, "%s", TIFILEUTILS_TOKENS_83[c] );
+    			fprintf( out, "%s", TIFILEUTILS_TOKENS_85[c] );
             }
         }
     }
