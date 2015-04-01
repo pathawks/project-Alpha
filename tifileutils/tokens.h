@@ -31,6 +31,8 @@
 #define TITOKEN_N         "𝐍"
 #define TITOKEN_n         "𝑛"
 #define TITOKEN_NOT_EQUAL "≠"
+#define TITOKEN_OMEGA     "Ω"
+#define TITOKEN_PHI       "ɸ"
 #define TITOKEN_PI        "𝜋"
 #define TITOKEN_PHAT      "p̂"
 #define TITOKEN_RHO       "𝜌"
@@ -69,6 +71,7 @@
 #define TITOKEN_SUP_r     "ʳ"
 #define TITOKEN_SUP_T     "ᵀ"
 #define TITOKEN_SUP_X     "ˣ"
+#define TITOKEN_TAU       "𝜏"
 #define TITOKEN_THETA     "𝛳"
 #define TITOKEN_TRIANGLE  "▶︎"
 #define TITOKEN_TRIANGLEL "◀︎"
@@ -76,6 +79,12 @@
 #define TITOKEN_XRT       "ˣ√"
 #define TITOKEN_X_MEAN    "x̅"
 #define TITOKEN_Y_MEAN    "y̅"
+
+#define TITOKEN_ARROW_UP  "↑"
+#define TITOKEN_ARROW_DOWN "↓"
+#define TITOKEN_ARROW_UP_BOLD "⬆︎"
+#define TITOKEN_ARROW_DOWN_BOLD "⬇︎"
+#define TITOKEN_INVERT_EQUAL "⌸"
 
 const char* const TI_TOKEN_LISTS[1 + 10];
 const char* const TI_TOKEN_Y[1 + 10];
