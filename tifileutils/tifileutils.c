@@ -4,6 +4,7 @@
 #include "92/tokens.h"
 
 CalcType tiDetectFileType(FILE* file) {
+    const CalcType *calc = TI_FAMILY;
     char magicNumber[12];
     int i;
 
@@ -14,7 +15,6 @@ CalcType tiDetectFileType(FILE* file) {
         magicNumber[i] = getc(file);
     magicNumber[i] = '\0';
 
-    const CalcType *calc = TI_FAMILY;
     do {
         if (strcmp(magicNumber, (*calc)->MAGIC_NUMBER) == 0)
             return *calc;
@@ -27,12 +27,8 @@ CalcType tiDetectFileType(FILE* file) {
 }
 
 int tiCalcFileSize(FILE* in, CalcType inCalc) {
-    int inFileSize;
-
     fseek( in, inCalc->SIZE_OFFSET + 1, SEEK_SET );
-    inFileSize = getc( in ) + getc( in ) * 0x100;
-
-    return inFileSize;
+    return getc( in ) + getc( in ) * 0x100;
 }
 
 int tiCalcToText(FILE* in, FILE* out) {
