@@ -545,8 +545,8 @@ const char* const tifileutils_tokens_83_BB[0xFF + 2] = {
     /* FF */ NULL,
 };
 
-const char* const tifileutils_tokens_83_EF[0x075 + 2] = {
-    /* Highest token in list */ (const char *const) 0x075,
+const char* const tifileutils_tokens_83_EF[0x7A + 2] = {
+    /* Highest token in list */ (const char *const) 0x7A,
     /* 00 */ "setDate(",
     /* 01 */ "setTime(",
     /* 02 */ "checkTmr(",
@@ -665,6 +665,11 @@ const char* const tifileutils_tokens_83_EF[0x075 + 2] = {
     /* 73 */ TITOKEN_DOT_SM,
     /* 74 */ "Thin",
     /* 75 */ "Dot-Thin",
+    /* 76 */ NULL,
+    /* 77 */ NULL,
+    /* 78 */ NULL,
+    /* 79 */ NULL,
+    /* 7A */ "Asm84CEPrgm", /* Or "Asm83CEPrgm" on the TI-83 Premium CE */
 };
 
 const char* const tifileutils_tokens_83[0x0100] = {
