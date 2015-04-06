@@ -789,8 +789,8 @@ const char* const tifileutils_tokens_83[0x0100] = {
     /* 71 */ "-",
     /* 72 */ "Ans",
     /* 73 */ "Fix ",
-    /* 74 */ "Horiz",
-    /* 75 */ "Full",
+    /* 74 */ "Horiz", // "Split" on TI-82
+    /* 75 */ "Full", // "FullScreen" on TI-82
     /* 76 */ "Func",
     /* 77 */ "Param",
     /* 78 */ "Polar",
@@ -852,11 +852,11 @@ const char* const tifileutils_tokens_83[0x0100] = {
     /* B0 */ "-", /* Negative */
     /* B1 */ "int(",
     /* B2 */ "abs(",
-    /* B3 */ "det(",
-    /* B4 */ "identity(",
+    /* B3 */ "det(", // No "(" on TI-82
+    /* B4 */ "identity(", // No "(" on TI-82
     /* B5 */ "dim(",
-    /* B6 */ "sum(",
-    /* B7 */ "prod(",
+    /* B6 */ "sum(", // No "(" on TI-82
+    /* B7 */ "prod(", // No "(" on TI-82
     /* B8 */ "not(",
     /* B9 */ "iPart(",
     /* BA */ "fPart(",
@@ -867,18 +867,18 @@ const char* const tifileutils_tokens_83[0x0100] = {
     /* BF */ TITOKEN_e "^(",
     /* C0 */ "log(",
     /* C1 */ TITOKEN_SUB_TEN "^(",
-    /* C2 */ "sin(",
-    /* C3 */ "sin" TITOKEN_SUP_N_ONE "(",
-    /* C4 */ "cos(",
-    /* C5 */ "cos" TITOKEN_SUP_N_ONE "(",
-    /* C6 */ "tan(",
-    /* C7 */ "tan" TITOKEN_SUP_N_ONE "(",
-    /* C8 */ "sinh(",
-    /* C9 */ "sinh" TITOKEN_SUP_N_ONE "(",
-    /* CA */ "cosh(",
-    /* CB */ "cosh" TITOKEN_SUP_N_ONE "(",
-    /* CC */ "tanh(",
-    /* CD */ "tanh" TITOKEN_SUP_N_ONE "(",
+    /* C2 */ "sin(", // No "(" on TI-82
+    /* C3 */ "sin" TITOKEN_SUP_N_ONE "(", // No "(" on TI-82
+    /* C4 */ "cos(", // No "(" on TI-82
+    /* C5 */ "cos" TITOKEN_SUP_N_ONE "(", // No "(" on TI-82
+    /* C6 */ "tan(", // No "(" on TI-82
+    /* C7 */ "tan" TITOKEN_SUP_N_ONE "(", // No "(" on TI-82
+    /* C8 */ "sinh(", // No "(" on TI-82
+    /* C9 */ "sinh" TITOKEN_SUP_N_ONE "(", // No "(" on TI-82
+    /* CA */ "cosh(", // No "(" on TI-82
+    /* CB */ "cosh" TITOKEN_SUP_N_ONE "(", // No "(" on TI-82
+    /* CC */ "tanh(", // No "(" on TI-82
+    /* CD */ "tanh" TITOKEN_SUP_N_ONE "(", // No "(" on TI-82
     /* CE */ "If ",
     /* CF */ "Then",
     /* D0 */ "Else",
