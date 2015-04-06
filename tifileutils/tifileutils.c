@@ -27,8 +27,11 @@ CalcType tiDetectFileType(FILE* file) {
 }
 
 int tiCalcFileSize(FILE* in, CalcType inCalc) {
-    fseek( in, inCalc->SIZE_OFFSET + 1, SEEK_SET );
-    return getc( in ) + getc( in ) * 0x100;
+    int size;
+    fseek( in, inCalc->SIZE_OFFSET, SEEK_SET );
+    size = getc( in ) * 0x100 + getc( in );
+    getc( in );
+    return size;
 }
 
 int tiCalcToText(FILE* in, FILE* out) {
