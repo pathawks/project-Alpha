@@ -120,30 +120,18 @@ int tiCalcToText(FILE* in, FILE* out) {
                     fprintf( out, "%c", c );
                 }
                 continue;
-			case 0x3A: // { These are all intended to fall through!
-				fprintf( out, "%c", getc( in ) );
-                --inFileSize;
+			case 0x3A:
 			case 0x39:
-				fprintf( out, "%c", getc( in ) );
-                --inFileSize;
 			case 0x38:
-				fprintf( out, "%c", getc( in ) );
-                --inFileSize;
 			case 0x37:
-				fprintf( out, "%c", getc( in ) );
-                --inFileSize;
 			case 0x36:
-				fprintf( out, "%c", getc( in ) );
-                --inFileSize;
 			case 0x35:
-				fprintf( out, "%c", getc( in ) );
-                --inFileSize;
 			case 0x34:
-				fprintf( out, "%c", getc( in ) );
-                --inFileSize;
 			case 0x33:
-				fprintf( out, "%c", getc( in ) );
-                --inFileSize;
+                do {
+    				fprintf( out, "%c", getc( in ) );
+                    --inFileSize;
+                } while (--c != 0x32);
 				continue;
             case 0x32: // variable-name tokens
             case 0x3B: // variable-name tokens
