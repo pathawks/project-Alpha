@@ -51,7 +51,7 @@ int tiCalcToText(FILE* in, FILE* out) {
 
     inCalc = tiDetectFileType(in);
     if ( !inCalc ) {
-		printf("%s\n", "Input file is not a recognized calculator file type");
+        printf("%s\n", "Input file is not a recognized calculator file type");
         exit(EXIT_FAILURE);
     }
 
@@ -65,12 +65,12 @@ int tiCalcToText(FILE* in, FILE* out) {
      * a TI-84+CE, so that's half the battle...
      */
     if (inCalc->FAMILY == TI83) {
-    	while( inFileSize-- ) {
-        	c = getc( in );
-        	if( feof( in ) ) {
-        		printf( "END OF FILE REACHED!" );
-        		return EXIT_FAILURE;
-        	}
+        while( inFileSize-- ) {
+            c = getc( in );
+            if( feof( in ) ) {
+                printf( "END OF FILE REACHED!" );
+                return EXIT_FAILURE;
+            }
             switch( c ) {
             case 0x5C:
             case 0x5D:
@@ -94,51 +94,51 @@ int tiCalcToText(FILE* in, FILE* out) {
                     fprintf( out, "[Out of range Token: %.4X%.4X]", c, d);
                 }
                 continue;
-    		default:
+            default:
                 if (TIFILEUTILS_TOKENS_83[c])
-    		        fprintf( out, "%s", TIFILEUTILS_TOKENS_83[c] );
+                    fprintf( out, "%s", TIFILEUTILS_TOKENS_83[c] );
                 else
                     fprintf( out, "[Unknown Token: %.2X]", c );
             }
         }
     } else if (inCalc->FAMILY == TI85) {
-    	while( inFileSize-- ) {
-        	c = getc( in );
-        	if( feof( in ) ) {
-        		printf( "END OF FILE REACHED!" );
-        		return EXIT_FAILURE;
-        	}
+        while( inFileSize-- ) {
+            c = getc( in );
+            if( feof( in ) ) {
+                printf( "END OF FILE REACHED!" );
+                return EXIT_FAILURE;
+            }
             switch( c ) {
             case 0xE1: // Goto token;            zero-terminated string follows
                 while (--inFileSize && !(d = getc( in )));
                 ++inFileSize,ungetc( d, in );
             case 0xE0: // Lbl token;             zero-terminated string follows
             case 0x2D: // opening quote;         zero-terminated string follows
-				fprintf( out, "%s", TIFILEUTILS_TOKENS_85[c] );
+                fprintf( out, "%s", TIFILEUTILS_TOKENS_85[c] );
             case 0x44: // literal-number token;  zero-terminated string follows
-				while (--inFileSize && (c=getc( in ))) {
+                while (--inFileSize && (c=getc( in ))) {
                     fprintf( out, "%c", c );
                 }
                 continue;
-			case 0x3A:
-			case 0x39:
-			case 0x38:
-			case 0x37:
-			case 0x36:
-			case 0x35:
-			case 0x34:
-			case 0x33:
+            case 0x3A:
+            case 0x39:
+            case 0x38:
+            case 0x37:
+            case 0x36:
+            case 0x35:
+            case 0x34:
+            case 0x33:
                 do {
-    				fprintf( out, "%c", getc( in ) );
+                    fprintf( out, "%c", getc( in ) );
                     --inFileSize;
                 } while (--c != 0x32);
-				continue;
+                continue;
             case 0x32: // variable-name tokens
             case 0x3B: // variable-name tokens
             case 0x3C: // variable-name tokens
                 --inFileSize;
                 d = getc( in );
-				do {
+                do {
                     fprintf( out, "%c", getc( in ) );
                     --inFileSize;
                 } while (--d);
@@ -152,28 +152,28 @@ int tiCalcToText(FILE* in, FILE* out) {
                 if (d <= (*TIFILEUTILS_TOKENS_85[c]&0xFF))
                     fprintf( out, "%s", ((char ***)TIFILEUTILS_TOKENS_85)[c][d+1] );
                 continue;
-    		default:
-    			fprintf( out, "%s", TIFILEUTILS_TOKENS_85[c] );
+            default:
+                fprintf( out, "%s", TIFILEUTILS_TOKENS_85[c] );
             }
         }
     } else if (inCalc->FAMILY == TI92) {
 
         fseek( in, 0x49, SEEK_SET );
-		int tokenizedFile = fgetc( in );
+        int tokenizedFile = fgetc( in );
 
         if (!tokenizedFile) {
             inFileSize -= 4;
             getc( in ),getc( in ),getc( in ),getc( in ),getc( in ),getc( in ),getc( in ),getc( in );
             while ( inFileSize-- ) {
-            	c = getc( in );
-            	if( feof( in ) ) {
-            		printf( "END OF FILE REACHED!" );
-            		return EXIT_FAILURE;
-            	}
+                c = getc( in );
+                if( feof( in ) ) {
+                    printf( "END OF FILE REACHED!" );
+                    return EXIT_FAILURE;
+                }
                 fprintf( out, "%c", c );
             }
         } else {
-    		printf( "Tokenized TI-92 files not yet implemented\n" );
+            printf( "Tokenized TI-92 files not yet implemented\n" );
             return EXIT_FAILURE;
         }
     } else {
