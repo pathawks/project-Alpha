@@ -110,13 +110,13 @@ int tiCalcToText(FILE* in, FILE* out) {
         	}
             switch( c ) {
             case 0xE1: // Goto token;            zero-terminated string follows
-                while (--inFileSize,!(d = getc( in )));
+                while (!(d = getc( in )) && --inFileSize);
                 ++inFileSize,ungetc( d, in );
             case 0xE0: // Lbl token;             zero-terminated string follows
             case 0x2D: // opening quote;         zero-terminated string follows
 				fprintf( out, "%s", TIFILEUTILS_TOKENS_85[c] );
             case 0x44: // literal-number token;  zero-terminated string follows
-				while ((--inFileSize,c=getc( in ))) {
+				while ((c=getc( in )) && --inFileSize) {
                     fprintf( out, "%c", c );
                 }
                 continue;
